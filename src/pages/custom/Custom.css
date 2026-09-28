@@ -1,0 +1,72 @@
+.mock {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.mock h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.mock-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mock-form label {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.mock-form select,
+.mock-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.mock-form textarea {
+    resize: vertical;
+    font-family: monospace;
+}
+
+.mock-form button {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mock-form button:hover {
+    background: #444;
+}
+
+.mock-result {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 20px;
+    background: #f5f5f5;
+}
+
+.mock-result h2 {
+    margin-bottom: 15px;
+}
+
+.mock-result pre {
+    padding: 20px;
+    overflow-x: auto;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+}

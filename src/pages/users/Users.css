@@ -1,0 +1,35 @@
+
+.users {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.users h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.users-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.user-card {
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-card h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.user-card p {
+    margin: 8px 0;
+    color: #555;
+}

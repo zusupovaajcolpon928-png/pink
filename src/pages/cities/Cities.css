@@ -1,0 +1,47 @@
+.cities {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.cities h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.cities-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.city-card {
+    padding: 25px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.city-card h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.city-card p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.city-card a {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+}
+
+.city-card a:hover {
+    background: #444;
+}

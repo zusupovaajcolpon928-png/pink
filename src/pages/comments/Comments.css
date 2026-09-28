@@ -1,0 +1,36 @@
+
+.comments {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.comments h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.comments-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.comment-card {
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(226, 232, 229, 0.1);
+}
+
+.comment-card h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.comment-card p {
+    color: #a62e2e;
+    line-height: 1.6;
+}
+

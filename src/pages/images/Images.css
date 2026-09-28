@@ -1,0 +1,50 @@
+.images {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.images h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.images-section {
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.images-section h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.images-section input {
+    padding: 12px 15px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.images-section input:focus {
+    border-color: #999;
+}
+
+.images-section > img {
+    display: block;
+    max-width: 100%;
+    margin: 25px auto 0;
+    border-radius: 15px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

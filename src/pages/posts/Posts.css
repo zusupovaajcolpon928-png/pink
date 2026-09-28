@@ -1,0 +1,41 @@
+
+.posts {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.posts h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.posts-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.post-card {
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.post-card p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.post-card span {
+    color: #888;
+    font-size: 14px;
+}

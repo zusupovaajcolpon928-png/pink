@@ -1,0 +1,47 @@
+.countries {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.countries h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.countries-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.country-card {
+    padding: 25px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.country-card h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.country-card p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.country-card a {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+}
+
+.country-card a:hover {
+    background: #444;
+}
