@@ -1,23 +1,45 @@
 
-import { useState } from "react";
-import { demoTodos } from "../../data/demoData.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Todos.css";
 
 function Todos() {
-    const [todos, setTodos] = useState(demoTodos);
+    const [apiTodos, setApiTodos] = useState([]);
+    const [addedTodos, setAddedTodos] = useState([]);
+    const [completedOverrides, setCompletedOverrides] = useState({});
     const [draft, setDraft] = useState("");
+
+    useEffect(() => {
+        axios.get("https://fooapi.com/api/todos")
+            .then(({ data }) => setApiTodos(Array.isArray(data?.data) ? data.data : []))
+            .catch((error) => console.error("FooAPI todos request failed:", error));
+    }, []);
+
+    const todos = [
+        ...apiTodos.map((todo) => ({
+            ...todo,
+            title: todo.todo,
+            completed: completedOverrides[todo.id] ?? todo.closed,
+            due: todo.state,
+            tag: `User ${todo.userId}`,
+        })),
+        ...addedTodos,
+    ];
     const completed = todos.filter((todo) => todo.completed).length;
 
     function addTodo(event) {
         event.preventDefault();
         const title = draft.trim();
         if (!title) return;
-        setTodos((current) => [...current, { id: Date.now(), title, completed: false, due: "No date", tag: "Personal" }]);
+        setAddedTodos((current) => [...current, { id: Date.now(), title, completed: false, due: "No date", tag: "Personal" }]);
         setDraft("");
     }
 
     function toggleTodo(id) {
-        setTodos((current) => current.map((todo) => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+        setCompletedOverrides((current) => ({
+            ...current,
+            [id]: !todos.find((todo) => todo.id === id)?.completed,
+        }));
     }
 
     return (

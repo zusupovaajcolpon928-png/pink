@@ -8,4 +8,13 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  server: {
+    proxy: {
+      '/fooapi': {
+        target: 'https://fooapi.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/fooapi/, ''),
+      },
+    },
+  },
 })

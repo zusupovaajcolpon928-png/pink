@@ -1,17 +1,35 @@
 
-import { useState } from "react";
-import { demoComments } from "../../data/demoData.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Comments.css";
 
 function Comments() {
-    const [comments, setComments] = useState(demoComments);
+    const [apiComments, setApiComments] = useState([]);
+    const [addedComments, setAddedComments] = useState([]);
     const [draft, setDraft] = useState("");
+
+    useEffect(() => {
+        axios.get("https://fooapi.com/api/comments")
+            .then(({ data }) => setApiComments(Array.isArray(data?.data) ? data.data : []))
+            .catch((error) => console.error("FooAPI comments request failed:", error));
+    }, []);
+
+    const comments = [
+        ...addedComments,
+        ...apiComments.map((comment) => ({
+            ...comment,
+            name: `${comment.user?.name ?? ""} ${comment.user?.lastname ?? ""}`.trim(),
+            initials: `${comment.user?.name?.[0] ?? ""}${comment.user?.lastname?.[0] ?? ""}`,
+            body: comment.comment,
+            date: `${comment.reactions} reactions`,
+        })),
+    ];
 
     function addComment(event) {
         event.preventDefault();
         const body = draft.trim();
         if (!body) return;
-        setComments((current) => [{ id: Date.now(), name: "You", initials: "YO", date: "Just now", body }, ...current]);
+        setAddedComments((current) => [{ id: Date.now(), name: "You", initials: "YO", date: "Just now", body }, ...current]);
         setDraft("");
     }
 

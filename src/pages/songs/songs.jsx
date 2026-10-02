@@ -6,22 +6,10 @@ import "./Songs.css";
 function Songs() {
     const [songs, setSongs] = useState([]);
 
-    const getSongs = async () => {
-        try {
-            const response = await axios.get(
-                "https://fooapi.com/api/songs"
-            );
-
-            console.log(response.data);
-
-            setSongs(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     useEffect(() => {
-        getSongs();
+        axios.get("https://fooapi.com/api/songs")
+            .then(({ data }) => setSongs(Array.isArray(data?.data) ? data.data : []))
+            .catch((error) => console.error("FooAPI songs request failed:", error));
     }, []);
 
     return (
@@ -34,7 +22,7 @@ function Songs() {
                 {songs.map((song) => (
                     <div className="song-card" key={song.id}>
 
-                        <h2>{song.title}</h2>
+                        <h2>{song.name}</h2>
 
                         <p>ID: {song.id}</p>
 
